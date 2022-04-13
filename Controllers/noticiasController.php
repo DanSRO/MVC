@@ -15,12 +15,16 @@ class noticiasController extends Controller
     
     public function entretenimento($id_noticia)  //padrao www.nome.com/
     {
-        echo "deu certo entrou em entretenimento";
+        $n =  new Noticias();
+        $dados = $n->getNoticiaPorId($id_noticia);
+        echo '<pre>';
+        print_r($dados);
+        echo '<pre>';
         //chama um model
         //chama uma view
         //fazer junção de back com front
-        exit;        
-        $this->carregarTemplate('entretenimento');
+                
+        $this->carregarTemplate('entretenimento', $dados);
     }
 
     public function futebol()  //padrao www.nome.com/
